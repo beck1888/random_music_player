@@ -1,4 +1,4 @@
-# Hides Streamlit's excessive UI
+# Hides Streamlit's excessive UI - brings page content up
 remove_st_ui = """
 <style>
     #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
@@ -27,3 +27,10 @@ hide_enter_to_submit = """
     [data-testid="InputInstructions"] { display:None }
     </style>
     """
+
+# Remove the header
+remove_header = """
+            <style>
+            header {visibility: hidden;}
+            </style>
+            """

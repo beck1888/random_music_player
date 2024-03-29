@@ -1,0 +1,11 @@
+# To-do list
+- Add Spotify lightsaber easter egg
+- Add multiple profiles for playlists
+- Deploy app
+- Remove 'made with streamlit' banner
+- Change background?
+- Remove page anchors
+- See if the header blank space can be removed
+- Remove orange and red bar at top
+- Add credits
+- Add multiple pages for different playlist (and add a playlist selection screen first)

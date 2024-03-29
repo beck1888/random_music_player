@@ -12,7 +12,7 @@ favicon = Image.open('favicon.png')
 st.set_page_config(page_title="Music player", page_icon=favicon)
 
 # Import and apply the custom styling configs
-page_configs = [remove_st_ui, no_anchors, hide_settings, hide_enter_to_submit]
+page_configs = [remove_st_ui, hide_enter_to_submit]
 for custom_style in page_configs:
     st.markdown(custom_style, unsafe_allow_html=True)
 
@@ -84,9 +84,16 @@ with st.form("Remove a song from the list", clear_on_submit=True):
         else:
             st.error("Wrong password. The current song has not been deleted.")
 
+
+# Playlist info
+st.title("🎧 Songs in this playlist:")
+
+# Download button for the playlist info
+with open('songs.json', 'r') as download_file:
+    st.download_button("📥 Download playlist json file", data=download_file, file_name="playlist.json")
+
 # List all the songs in the playlist
 index = 1
-st.title("🎧 Songs in this playlist:")
 for song in get_songs():
     st.text(f"{str(index)}) {song}")
     index += 1
