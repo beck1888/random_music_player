@@ -71,7 +71,7 @@ with st.form("Add a song to the list", clear_on_submit=True):
 with st.form("Remove a song from the list", clear_on_submit=True):
     st.subheader("🗑️ Remove a song from the list")
 
-    song_name_pop = st.text_input("Song name (exactly as listed below)")
+    song_name_pop = st.selectbox("Pick a song to remove", list(get_songs()), index=None, placeholder="Click the dropdown or type here...")
     user_password_guess = st.text_input("Password", type='password')
     st.text("A password is required so only authorized people may remove songs.")
     if st.form_submit_button("Remove song"):
@@ -86,7 +86,7 @@ with st.form("Remove a song from the list", clear_on_submit=True):
 
 # List all the songs in the playlist
 index = 1
-st.title("🎧 All the song titles in this playlist:")
+st.title("🎧 Songs in this playlist:")
 for song in get_songs():
     st.text(f"{str(index)}) {song}")
     index += 1
