@@ -69,16 +69,20 @@ with st.form("Add a song to the list", clear_on_submit=True):
 
 # Form for removing the current song from the playlist
 with st.form("Remove a song from the list", clear_on_submit=True):
-    st.subheader("🗑️ Remove the currently playing song from the list")
+    st.subheader("🗑️ Remove a song from the list")
 
+    song_name_pop = st.text_input("Song name (exactly as listed below)")
     user_password_guess = st.text_input("Password", type='password')
     st.text("A password is required so only authorized people may remove songs.")
     if st.form_submit_button("Remove song"):
         if is_correct_password(user_password_guess) is True:
-            remove_song(now_playing)
-            st.success("Song removed!", icon="✅")
+            remove_status = remove_song(song_name_pop)
+            if remove_status == 'complete':
+                st.success("Song removed!", icon="✅")
+            else:
+                st.error("That song isn't in this playlist")
         else:
-            st.error("The current song has not been deleted.")
+            st.error("Wrong password. The current song has not been deleted.")
 
 # List all the songs in the playlist
 index = 1
